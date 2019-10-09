@@ -10,6 +10,12 @@ import "./styles.scss";
 
 const App = () => {
    const [coinData, setCoinData] = useState([]);
+   const [dataFilter, setDataFilter] = useState("all");
+   const filterProps = {
+      coinData,
+      dataFilter,
+      setDataFilter
+   };
 
    useEffect(() => {
       axios
@@ -19,10 +25,15 @@ const App = () => {
          .then(res => setCoinData(res.data))
          .catch(err => console.log(err));
    }, []);
+
+   useEffect(() => {
+      console.log(`Data Filter changed to: '${dataFilter}'`)
+   }, [dataFilter]);
+
    return (
       <div className="App">
          <Navbar />
-         <Toolbar />
+         <Toolbar {...filterProps} />
          <Charts coinData={coinData} />
       </div>
    );

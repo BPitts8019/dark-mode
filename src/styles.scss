@@ -180,6 +180,23 @@ img {
   box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
 }
 
+.toolbar {
+   margin-top: 1%;
+   padding: 0 3%;
+   width: 100%;
+
+   display: flex;
+   justify-content: flex-start;
+
+   svg {
+      margin-right: 1%;
+   }
+
+   select {
+      min-width: 120px;
+   }
+}
+
 .dark-mode__toggle {
   background: papayawhip;
   border-radius: 50px;
